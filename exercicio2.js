@@ -47,27 +47,19 @@ const imagens = [
 
 let indexImagemExibida = 0;
 
-let slide = document.querySelector("#slide")
+const slide = document.querySelector("#slide")
 
-function updateImage() {
+function changeImage(delta) {
+  indexImagemExibida = (indexImagemExibida + delta + imagens.length) % imagens.length
+
   slide.src = servidorDasImagens + '/' + imagens[indexImagemExibida]['arquivo']
   slide.alt = imagens[indexImagemExibida]['descricao'];
 }
 
-function proximaImagem() {
-  indexImagemExibida + 1 <= imagens.length - 1 ? indexImagemExibida++ : indexImagemExibida = 0;
-  updateImage();
-}
-
-function voltaImagem() {
-  indexImagemExibida - 1 >= 0 ? indexImagemExibida-- : indexImagemExibida = imagens.length - 1;
-  updateImage();
-}
-
 document.querySelector("#proximo").addEventListener("click", function () {
-  proximaImagem();
+  changeImage(1);
 });
 
 document.querySelector("#anterior").addEventListener("click", function () {
-  voltaImagem();
+  changeImage(-1);
 });
