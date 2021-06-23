@@ -7,9 +7,7 @@ function calculaForcaGravitacional() {
     return constante * massa1 * massa2 / (distancia ** 2)
 }
 
-let botaoCalcForca = document.querySelector("#calcular");
-
-botaoCalcForca.addEventListener("click", function () {
+document.querySelector("#calcular").addEventListener("click", function () {
     let resultado = document.querySelector("#resultado")
     resultado.value = calculaForcaGravitacional()
 });
