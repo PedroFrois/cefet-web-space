@@ -1,2 +1,7 @@
-// Faça o exercício dos PARÁGRAFOS aqui
-// Este arquivo AINDA NÃO ESTÁ INCLUÍDO no arquivo HTML
+let botoesExpandir = document.querySelectorAll(".botao-expandir-retrair")
+
+for (let botao of botoesExpandir) {
+    botao.addEventListener("click", function (evt) {
+        evt.currentTarget.parentNode.classList.toggle("expandido");
+    });
+}
